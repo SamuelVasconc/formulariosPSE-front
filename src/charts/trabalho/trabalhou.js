@@ -12,23 +12,36 @@ const data = [
 const COLORS = ['#00C49F', '#FF8042'];
 
 
-export default class Trabalhou extends PureComponent {
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+}) => {
+   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
+
+export default class Trabalhou extends PureComponent {
+  
   render() {
     return (
-        <MDBCol>
+      <MDBCol>
                 <MDBCard style={{ width: "28rem" }}>
-      <PieChart width={800} height={300} onMouseEnter={this.onPieEnter}>
+      <PieChart width={400} height={400}>
         <Pie
           data={data}
-          cx={230}
+          cx={200}
           cy={200}
-          startAngle={180}
-          endAngle={0}
-          innerRadius={60}
+          labelLine={false}
+          label={renderCustomizedLabel}
           outerRadius={80}
           fill="#8884d8"
-          paddingAngle={5}
           dataKey="value"
         >
           {
@@ -37,7 +50,7 @@ export default class Trabalhou extends PureComponent {
         </Pie>
       </PieChart>
       <MDBCardBody>
-                <MDBCardTitle>Já Trabalhou</MDBCardTitle>
+                <MDBCardTitle>Ja Trabalhou</MDBCardTitle>
             </MDBCardBody>
       </MDBCard>
             </MDBCol>

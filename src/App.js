@@ -1,16 +1,18 @@
 import React from 'react';
-import Estado from './charts/localizacao/estado';
-import Moradia from './charts/localizacao/moradia';
+import Genero from './charts/diversidade/genero';
+import Etnia from './charts/diversidade/etnia';
 import Trabalha from './charts/trabalho/trabalha';
 import Trabalhou from './charts/trabalho/trabalhou';
+import Renda from './charts/renda/renda';
 
 function App() {
   return (
     <div className="row">   
-      <Estado/>
-      <Moradia/>
+      <Genero/>
+      <Etnia/>
       <Trabalhou/>
       <Trabalha/>
+      <Renda/>
     </div>
   );
 }
