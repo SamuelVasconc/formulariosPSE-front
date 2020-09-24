@@ -4,6 +4,7 @@ import Etnia from './charts/diversidade/etnia';
 import Trabalha from './charts/trabalho/trabalha';
 import Trabalhou from './charts/trabalho/trabalhou';
 import Renda from './charts/renda/renda';
+import Idade from './charts/idade/idade';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Trabalhou/>
       <Trabalha/>
       <Renda/>
+      <Idade/>
     </div>
   );
 }
